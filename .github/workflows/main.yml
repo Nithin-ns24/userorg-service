@@ -1,6 +1,9 @@
 name: SonarCloud
 on:
   workflow_dispatch:
+
+permissions:
+  id-token: write
   
 jobs:
   build:
@@ -32,3 +35,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=nithin-ns24-1_userorg-service
+
+      - name: Upload Tool Results To Pixeebot
+        uses: pixee/upload-tool-results-action@v1
+        with:
+          tool: sonar
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
