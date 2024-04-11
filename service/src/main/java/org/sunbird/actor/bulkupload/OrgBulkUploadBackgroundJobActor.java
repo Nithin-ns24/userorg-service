@@ -50,7 +50,7 @@ public class OrgBulkUploadBackgroundJobActor extends BaseBulkUploadBackgroundJob
   public void onReceive(Request request) throws Throwable {
     String operation = request.getOperation();
     Util.initializeContext(request, TelemetryEnvKey.ORGANISATION);
-    if (operation.equalsIgnoreCase("orgBulkUploadBackground")) {
+    if ("orgBulkUploadBackground".equalsIgnoreCase(operation)) {
       handleBulkUploadBackground(
           request,
           (baseBulkUpload) -> {

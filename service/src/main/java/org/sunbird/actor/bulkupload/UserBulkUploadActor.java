@@ -32,7 +32,7 @@ public class UserBulkUploadActor extends BaseBulkUploadActor {
   public void onReceive(Request request) throws Throwable {
     Util.initializeContext(request, TelemetryEnvKey.USER);
     String operation = request.getOperation();
-    if (operation.equalsIgnoreCase("userBulkUpload")) {
+    if ("userBulkUpload".equalsIgnoreCase(operation)) {
       upload(request);
     } else {
       onReceiveUnsupportedOperation();

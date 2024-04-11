@@ -41,7 +41,7 @@ public class OrgBulkUploadActor extends BaseBulkUploadActor {
     Util.initializeContext(request, TelemetryEnvKey.ORGANISATION);
     String operation = request.getOperation();
 
-    if (operation.equalsIgnoreCase("orgBulkUpload")) {
+    if ("orgBulkUpload".equalsIgnoreCase(operation)) {
       upload(request);
     } else {
       onReceiveUnsupportedOperation();

@@ -53,7 +53,7 @@ public class UserBulkUploadBackgroundJobActor extends BaseBulkUploadBackgroundJo
   public void onReceive(Request request) throws Throwable {
     String operation = request.getOperation();
     Util.initializeContext(request, TelemetryEnvKey.USER);
-    if (operation.equalsIgnoreCase("userBulkUploadBackground")) {
+    if ("userBulkUploadBackground".equalsIgnoreCase(operation)) {
       handleBulkUploadBackground(
           request,
           (baseBulkUpload) -> {
