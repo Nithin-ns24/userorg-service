@@ -38,7 +38,7 @@
 		<sbt-compiler.plugin.version>1.0.0</sbt-compiler.plugin.version>
 		<scala.major.version>2.11</scala.major.version>
 		<scala.version>2.11.12</scala.version>
-		<learner.akka.version>2.5.19</learner.akka.version>
+		<learner.akka.version>2.5.32</learner.akka.version>
 	</properties>
 
 	<dependencies>
