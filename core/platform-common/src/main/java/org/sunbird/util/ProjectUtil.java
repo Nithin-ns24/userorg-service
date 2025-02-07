@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
+import java.security.SecureRandom;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 import org.sunbird.exception.ProjectCommonException;
@@ -207,7 +208,7 @@ public class ProjectUtil {
    * @return String
    */
   public static String getUniqueIdFromTimestamp(int environmentId) {
-    Random random = new Random();
+    Random random = new SecureRandom();
     long env = (environmentId + random.nextInt(99999)) / 10000000;
     long uid = System.currentTimeMillis() + random.nextInt(999999);
     uid = uid << 13;
